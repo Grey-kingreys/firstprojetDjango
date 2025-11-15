@@ -1,10 +1,187 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Blog - Mon site{% endblock %}
+{% block title %}Blog - Mon Site{% endblock %}
+
+{% block extra_css %}
+<!-- Fichier CSS personnalisé pour le blog -->
+<link rel="stylesheet" href="{% static 'blog.css' %}">
+{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>Bienvenue sur le Blog</h1>
-    <!-- Votre contenu blog ici -->
+<div class="container py-5">
+    <!-- En-tête du blog -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold mb-3">Notre Blog</h1>
+        <p class="lead text-muted">Découvrez nos derniers articles et actualités</p>
+        <div class="mt-4">
+            <a href="#featured" class="btn btn-primary me-2 mb-2">À la une</a>
+            <a href="#recent" class="btn btn-outline-secondary me-2 mb-2">Récents</a>
+            <a href="#popular" class="btn btn-outline-secondary me-2 mb-2">Populaires</a>
+            <a href="#categories" class="btn btn-outline-secondary mb-2">Catégories</a>
+        </div>
+    </div>
+
+    <!-- Article à la une -->
+    <div id="featured" class="row mb-5">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img src="https://picsum.photos/600/400?random=1" class="img-fluid rounded-start h-100" alt="Article à la une" onerror="this.src='https://via.placeholder.com/600x400?text=Image+non+chargée'">
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="card-body p-4 p-md-5">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-primary me-2">Technologie</span>
+                                <small class="text-muted">15 Nov. 2025</small>
+                            </div>
+                            <h2 class="card-title h3 fw-bold">Les dernières tendances en développement web pour 2025</h2>
+                            <p class="card-text text-muted">Découvrez les technologies et méthodologies qui façonneront le développement web au cours de l'année à venir, avec des insights d'experts du secteur.</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <div class="author-avatar me-2 bg-primary text-white d-flex align-items-center justify-content-center fw-bold" style="background-color: #6c757d;">JD</div>
+                                <div>
+                                    <p class="mb-0 fw-medium">Jean Dupont</p>
+                                    <small class="text-muted">Développeur Full Stack</small>
+                                </div>
+                                <a href="#" class="read-more ms-auto">Lire l'article <i class="bi bi-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Derniers articles -->
+    <div id="recent" class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="h4 fw-bold mb-0">Derniers articles</h2>
+            <a href="#" class="text-decoration-none">Voir tout <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="row g-4">
+            <!-- Article 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card blog-card h-100">
+                    <div class="position-relative">
+                        <img src="https://picsum.photos/400/300?random=2" class="card-img-top blog-card-img" alt="Article 1" onerror="this.src='https://via.placeholder.com/400x300?text=Image+non+chargée'">
+                        <span class="badge bg-success blog-category">Développement</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-2">
+                            <small class="text-muted me-3"><i class="bi bi-calendar3 me-1"></i> 10 Nov. 2025</small>
+                            <small class="text-muted"><i class="bi bi-chat-dots me-1"></i> 24 commentaires</small>
+                        </div>
+                        <h5 class="card-title fw-bold">Les meilleures pratiques pour coder en Python</h5>
+                        <p class="card-text text-muted">Découvrez comment écrire un code Python propre, maintenable et efficace avec ces bonnes pratiques éprouvées.</p>
+                        <a href="#" class="read-more">Lire plus</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card blog-card h-100">
+                    <div class="position-relative">
+                        <img src="https://picsum.photos/400/300?random=3" class="card-img-top blog-card-img" alt="Article 2" onerror="this.src='https://via.placeholder.com/400x300?text=Image+non+chargée'">
+                        <span class="badge bg-warning text-dark blog-category">Design</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-2">
+                            <small class="text-muted me-3"><i class="bi bi-calendar3 me-1"></i> 5 Nov. 2025</small>
+                            <small class="text-muted"><i class="bi bi-chat-dots me-1"></i> 18 commentaires</small>
+                        </div>
+                        <h5 class="card-title fw-bold">L'importance de l'UX dans le développement web</h5>
+                        <p class="card-text text-muted">Comment une bonne expérience utilisateur peut transformer votre site web et augmenter la rétention des visiteurs.</p>
+                        <a href="#" class="read-more">Lire plus</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card blog-card h-100">
+                    <div class="position-relative">
+                        <img src="https://picsum.photos/400/300?random=4" class="card-img-top blog-card-img" alt="Article 3" onerror="this.src='https://via.placeholder.com/400x300?text=Image+non+chargée'">
+                        <span class="badge bg-info blog-category">Mobile</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-2">
+                            <small class="text-muted me-3"><i class="bi bi-calendar3 me-1"></i> 1 Nov. 2025</small>
+                            <small class="text-muted"><i class="bi bi-chat-dots me-1"></i> 32 commentaires</small>
+                        </div>
+                        <h5 class="card-title fw-bold">Développement mobile cross-platform en 2025</h5>
+                        <p class="card-text text-muted">Comparatif des meilleures solutions pour développer des applications mobiles cross-platform en 2025.</p>
+                        <a href="#" class="read-more">Lire plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Catégories -->
+    <div id="categories" class="mb-5">
+        <h2 class="h4 fw-bold mb-4">Parcourir par catégories</h2>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; margin: 0 auto;">
+                                <i class="bi bi-code-slash fs-4"></i>
+                            </div>
+                            <h5 class="card-title mb-0">Développement</h5>
+                            <small class="text-muted">24 articles</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; margin: 0 auto;">
+                                <i class="bi bi-palette fs-4"></i>
+                            </div>
+                            <h5 class="card-title mb-0">Design</h5>
+                            <small class="text-muted">18 articles</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-warning bg-opacity-10 text-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; margin: 0 auto;">
+                                <i class="bi bi-phone fs-4"></i>
+                            </div>
+                            <h5 class="card-title mb-0">Mobile</h5>
+                            <small class="text-muted">12 articles</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="bg-light p-5 rounded-3 text-center">
+        <h3 class="h4 fw-bold mb-3">Restez informé</h3>
+        <p class="text-muted mb-4">Abonnez-vous à notre newsletter pour recevoir les derniers articles directement dans votre boîte mail.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <form class="row g-2">
+                    <div class="col-12 col-md-8">
+                        <input type="email" class="form-control form-control-lg" placeholder="Votre adresse email">
+                    </div>
+                    <div class="col-12 col-md-4 d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">S'abonner</button>
+                    </div>
+                </form>
+                <small class="text-muted d-block mt-2">Nous ne partagerons jamais votre email. Désabonnement à tout moment.</small>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
